@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP-REMOTE</title>
+    <script src="js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="back_page"
+    class="fa-solid fa-caret-left" style="font-size: 50px;" onclick="PageSwitch()">
+    </div>
+    <div class="background">
+        <div class="container">
+            <div class="main-section">
+                <div class="search-bar">
+                    My Room
+                </div>
+                <div class="info-wrapper">
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="weather-icon">
+                    <p class="temperature">--</p>
+                </div>
+            </div>
+            <div class="additional-section">
+                <div class="row">
+                    <div class="item">
+                        <div class="label">Độ ẩm</div>
+                        <div class="value"><span class="humidity">--</span>%</div>
+                    </div>
+                </div>
+                <div class="time">
+                    <div class="date">
+                        <span id="date">Date:</span>
+                        <span id="day">00</span>/   
+                        <span id="month">00</span>/
+                        <span id="year">0000</span>
+                    </div>
+                    <div class="hours">
+                        <span id="time">Time:</span>
+                        <span id="hour">00</span>:
+                        <span id="minutes">00</span>:
+                        <span id="seconds">00</span>
+                        <span id="period">AM</span>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="remote_by_voice">
+                <span class="microphone">
+                    <i id="icon_micro" class="fas fa-microphone"></i>
+                    <div class="voice_text">............................................................</div>
+                    <span class="recording-icon"></span>
+                </span>
+            </div>
+            <div class="remote_bulb">
+                <div class="remote_name">Remote Bulbs</div>
+                <div class="bulb">
+                    <div onclick="bulb1OnOff()" class="bulb1">
+                        <i id="bulb1" class="fas fa-lightbulb"></i>
+                    </div>
+                    <i id="icon_minus_bulb2" onclick="clickMinusBulb2()" class="fas fa-minus"></i>
+                    <div class="bulb2" onclick="bulb2OnOff()">
+                        <i id="bulb2" class="fas fa-lightbulb"></i>
+                    </div>
+                    <i id="icon_plus_bulb2" onclick="clickPlusBulb2()" class="fas fa-plus"></i>
+                </div>
+            </div>
+            <div class="remote_air">
+                <div class="remote_name">Remote Air</div>
+                <div class="air">
+                    <div class="buttom">
+                        <div class="buttom_air_left">
+                            <div onclick="clickPowerAir()" class="power_air">
+                                <i id="icon_power_air" class="fas fa-power-off"></i>
+                            </div>
+                            <div onclick="clickUpAir()" class="plus_air">
+                                <i id="icon_plus_air" class="fas fa-chevron-up"></i>
+                            </div>
+                            <div onclick="clickDownAir()" class="minus_air">
+                                <i id="icon_minus_air" class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="buttom_air_right">
+                            <div onclick="clickModeAir()" class="buttom_air"><Span class="mode_speed">Mode</Span></div>
+                            <div onclick="clickSpeedAir()" class="buttom_air"><span class="mode_speed">Speed</span></div>
+                        </div>
+                    </div>
+                    <div class="display_air">
+                        <div class="display">
+                            <div class="mode">Mode:</div>
+                            <div class="speed">Speed:</div>
+                            <div class="temp_o">
+                                <div class="temp"></div>
+                                <div>o</div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="remote_speak">
+                <div class="remote_name">Remote Speak</div>
+                <div class="buttom-speak">
+                    <div class="buttom1">
+                        <div onclick="clickPlayPauce()" class="buttom_speak">
+                            <i id="icon_play_speak" class="fas fa-play"></i>
+                            <i id="icon_pause_speak" class="fas fa-pause"></i>
+                        </div>
+                        <div onclick="clickBack()" class="buttom_speak">
+                            <i id="icon_back_speak" class="fas fa-backward"></i>
+                        </div>
+                    </div>
+                    <div class="buttom2">
+                        <div onclick="clickPowerSpeak()" class="power_speak">
+                            <i id="icon_power_speak" class="fas fa-power-off"></i>
+                        </div>
+                    </div>
+                    <div class="buttom3">
+                        <div onclick="clickStop()" class="buttom_speak">
+                            <i id="icon_stop_speak" class="fa-solid fa-volume-xmark"></i>
+                        </div>
+                        <div onclick="clickNext()" class="buttom_speak">
+                            <i id="icon_next_speak" class="fas fa-forward"></i>
+                        </div>
+                    </div>
+                    <div class="display-speak">
+                        <div class="display_speak">
+                            <div class="play_pause_stop">----</div>
+                            <div class="icon_volume">
+                                <div class="icon_mute"><i id="icon_mute" class="fa-solid fa-volume-xmark" ></i></div>
+                                <div class="icon_volume_max"><i id="icon_volume_max" class="fa-solid fa-volume-high"></i></div>
+                            </div>
+                            <div class="back_next">
+                                <div class="icon_back_speak_2"> 
+                                    <i id="icon_back_speak2" class="fas fa-backward"></i>
+                                </div>
+                                <div class="icon_next_speak_2">
+                                    <i id="icon_next_speak2" class="fas fa-forward"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div>
+        <div class="firealarm">
+            <div class="warning">
+                <span style="margin-left: 15px;">WARNING !</span>
+                <span style="margin-left: 70px;">FIRE</span>            
+            </div>
+            <div class="warning2">
+                <span style="margin-left: 15px;">WARNING !</span>
+                <span style="margin-left: 70px;">FIRE</span>            
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
